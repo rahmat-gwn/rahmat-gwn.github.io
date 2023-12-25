@@ -1,4 +1,4 @@
-<img src="https://raflymaulana.me/images/logo.png" alt="drawing" width="200"/>
+<!-- <img src="https://raflymaulana.me/images/logo.png" alt="drawing" width="200"/>
 
 # 👋 Hi! Welcome, I'm Rafly Maulana
 A fullstack developer, designer, and producer, from Indonesia.
@@ -27,4 +27,4 @@ Interested in working with me? Need help on your project? Or just wanna say hi? 
 - Dribbble:	[raflymln](http://dribbble.com/raflymln)
 - Behance: [raflymln](https://www.behance.net/raflymln)
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=raflymln/raflymln)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=raflymln/raflymln) -->
