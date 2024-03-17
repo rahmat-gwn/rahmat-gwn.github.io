@@ -528,6 +528,7 @@
         <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
+      <strong><div id="jam-digital"></div></strong>
       <div class="copyright">
         &copy; Copyright <strong><span id="tahun"></strong>. All Rights Reserved
       </div>
@@ -554,11 +555,14 @@
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Tahun -->
   <script>
     var tahunElement = document.getElementById("tahun");
     var tahunSekarang = new Date().getFullYear();
     tahunElement.textContent = tahunSekarang;
 </script>
+<!-- thn lahir -->
 <script>
     // Tanggal lahir yang telah ditentukan (19 April 2001)
     var tanggal_lahir = new Date(2001, 3, 19);
@@ -573,6 +577,90 @@
 
     document.getElementById("umur").innerHTML = "" + tahun + " ";
 </script>
+
+<!-- waktu -->
+<script>
+    function updateJamDigital() {
+        var now = new Date();
+        var jam = now.getHours();
+        var menit = now.getMinutes();
+        var detik = now.getSeconds();
+
+        // Menambahkan nol di depan angka jika kurang dari 10
+        jam = (jam < 10) ? "0" + jam : jam;
+        menit = (menit < 10) ? "0" + menit : menit;
+        detik = (detik < 10) ? "0" + detik : detik;
+
+        var waktuString = jam + ":" + menit + ":" + detik;
+        document.getElementById("jam-digital").innerHTML = waktuString;
+    }
+
+    function updateJamDinding() {
+        var canvas = document.getElementById("jam-dinding");
+        var ctx = canvas.getContext("2d");
+
+        var now = new Date();
+        var jam = now.getHours();
+        var menit = now.getMinutes();
+        var detik = now.getSeconds();
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Gambar lingkaran jam
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2 - 5, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        // Gambar jarum jam
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((Math.PI / 6) * jam + (Math.PI / 360) * menit + (Math.PI / 21600) * detik);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -canvas.height / 4);
+        ctx.stroke();
+        ctx.restore();
+
+        // Gambar jarum menit
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((Math.PI / 30) * menit + (Math.PI / 1800) * detik);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -canvas.height / 3);
+        ctx.stroke();
+        ctx.restore();
+
+        // Gambar jarum detik
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((Math.PI / 30) * detik);
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -canvas.height / 3);
+        ctx.stroke();
+        ctx.restore();
+
+        // Tampilkan tanggal
+        ctx.font = "16px Arial";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "black";
+        ctx.fillText(now.toDateString(), canvas.width / 2, canvas.height / 2 + canvas.height / 4);
+    }
+
+    // Memanggil fungsi update setiap detik
+    setInterval(function() {
+        updateJamDigital();
+        updateJamDinding();
+    }, 1000);
+</script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

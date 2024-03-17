@@ -13,6 +13,16 @@ body {
   color: #272829;
 }
 
+jam-digital {
+  font-size: 2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+jam-dinding {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
 a {
   color: #0563bb;
   text-decoration: none;
