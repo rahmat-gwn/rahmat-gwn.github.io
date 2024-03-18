@@ -3,3 +3,4 @@
 - git pull origin master
 - git commit -m "Pesan commit Anda di sini"
 - git push origin nama-branch
+- git merge nama-branch
