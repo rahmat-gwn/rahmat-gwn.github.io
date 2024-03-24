@@ -1,6 +1,6 @@
 - add branch new git branch new
 - git checkout #pindah branch
 - git pull origin master
-- git commit -m "Pesan commit Anda di sini"
+- git commit -m ""
 - git push origin nama-branch
 - git merge nama-branch
